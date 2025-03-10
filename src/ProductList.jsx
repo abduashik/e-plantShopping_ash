@@ -252,7 +252,7 @@ const handlePlantsClick = (e) => {
             <div className="tag">
                <div className="luxury">
                <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-               <a href="/" style={{textDecoration:'none'}}>
+               <a href="/e-plantShopping_ash/" style={{textDecoration:'none'}}>
                         <div>
                     <h3 style={{color:'white'}}>Paradise Nursery</h3>
                     <i style={{color:'white'}}>Where Green Meets Serenity</i>
@@ -268,7 +268,27 @@ const handlePlantsClick = (e) => {
         </div>
         {!showCart? (
         <div className="product-grid">
-
+            {plantsArray.map((section, sectionIndex) => (
+                <div className='prod-grid' key={sectionIndex}>
+                    <h2 className='plants-header'>{section.category}</h2>
+                    <div className='prod-list' >
+                        {section.plants.map((plant,plantIndex) => (
+                            <div className='prod-card' key={plantIndex}>
+                                <h3 className='prod-title'>{plant.name}</h3>
+                                <img className='prod-image' src={plant.image} alt={plant.name} />
+                                <p className='prod-price'>{plant.cost}</p>
+                                <p>{plant.description}</p>
+                                {cart.item.some(item => item.name === plant.name)?(
+                                    <button className='prod-button added-to-cart'>Added to Cart</button>
+                                ):(
+                                    <button className='prod-button' onClick={() => handleAddtoCart(plant)}>Add to Cart</button>
+                                )
+                            }
+                            </div>
+                        ))}
+                    </div>    
+                </div>
+            ))}
 
         </div>
  ) :  (
