@@ -224,7 +224,7 @@ function ProductList() {
     padding: '15px',
     display: 'flex',
     justifyContent: 'space-between',
-    alignIems: 'center',
+    alignItems: 'center',
     fontSize: '20px',
    }
    const styleObjUl={
@@ -287,10 +287,10 @@ const handlePlantsClick = (e) => {
             </div>
         </div>
         {!showCart? (
-        <div className="product-grid">
+        <div>
             {plantsArray.map((section, sectionIndex) => (
                 <div className='product-grid' key={sectionIndex}>
-                    <h2 className='plants-header'>{section.category}</h2>
+                    <h2 className='plants_heading'>{section.category}</h2>
                     <div className='product-list' >
                         {section.plants.map((plant,plantIndex) => (
                             <div className='product-card' key={plantIndex}>
