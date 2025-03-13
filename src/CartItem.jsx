@@ -7,7 +7,7 @@ const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
 
-    const parseItemCostToInteger = (itemCost) => {
+    const parseItemCostToInt = (itemCost) => {
         return parseInt(itemCost.replace('$',''), 10)
     }
 
@@ -16,7 +16,7 @@ const CartItem = ({ onContinueShopping }) => {
         let totalCost = 0;
 
         cart.forEach((item) => {
-            const itemCost = parseItemCostToInteger(item.cost);
+            const itemCost = parseItemCostToInt(item.cost);
             totalCost +=  itemCost * item.quantity;
         });
 
@@ -55,7 +55,7 @@ const CartItem = ({ onContinueShopping }) => {
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
     let totalCost = 0;
-    const itemsCost = parseItemCostToInteger(item.cost);
+    const itemsCost = parseItemCostToInt(item.cost);
     totalCost = item.quantity * itemsCost;
 
     return totalCost;
@@ -86,7 +86,7 @@ const CartItem = ({ onContinueShopping }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
       </div>
     </div>
   );
