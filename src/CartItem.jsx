@@ -23,6 +23,10 @@ const CartItem = ({ onContinueShopping }) => {
         return totalCost;
   };
 
+  const handleCheckoutShopping = (e) => {
+    alert('Functionality to be added for future reference');
+  };
+
   const handleContinueShopping = (e) => {
         onContinueShopping(e);
   };
