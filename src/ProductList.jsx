@@ -295,10 +295,10 @@ const handlePlantsClick = (e) => {
                         {section.plants.map((plant,plantIndex) => (
                             <div className='product-card' key={plantIndex}>
                                 <h3 className='product-title'>{plant.name}</h3>
-                                <img className='product-image' src={plants.image} alt={plant.name} />
+                                <img className='product-image' src={plant.image} alt={plant.name} />
                                 <p className='product-price'>{plant.cost}</p>
-                                <p>{plants.description}</p>
-                                {cart.item.some(item => item.name === plant.name)?(
+                                <p>{plant.description}</p>
+                                {cart.items.some(item => item.name === plant.name)?(
                                     <button className='product-button added-to-cart'>Added to Cart</button>
                                 ):(
                                     <button className='product-button' onClick={() => handleAddtoCart(plant)}>Add to Cart</button>
